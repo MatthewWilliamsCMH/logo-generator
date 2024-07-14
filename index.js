@@ -78,11 +78,10 @@ inquirer
     ])
     .then((results) => {
 
-        //these are not working because if the user chooses a named color, 
-        if (results.hexTextColor !== undefined) {
+        if (results.hexTextColor !== undefined && hexRegEx.test(results.hexTextColor)) {
             results.textColor = results.hexTextColor
         }
-        if (results.hexIconColor !== undefined) {
+        if (results.hexIconColor !== undefined && hexRegEx.test(results.hexIconColor)) {
             results.iconColor = results.hexIconColor
         }
         //tests 6-character long text (or icon) color value against hex regex; if it passes, "#" is 
