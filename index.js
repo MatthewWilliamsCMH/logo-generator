@@ -8,8 +8,8 @@ const Triangle = require("./lib/triangle.js");
 const colors = ["custom color", "red", "yellow", "green", "lime", "aqua", "blue", "cyan", "black", "white"];
 const hexRegEx = /^([0-9a-f]{3}){1,2}$/i;
 
+//gather user data
 inquirer.registerPrompt ('maxlength-input', MaxLengthInputPrompt);
-
 inquirer
     .prompt ([
         {
@@ -73,14 +73,6 @@ inquirer
         if (results.hexIconColor !== undefined && hexRegEx.test (results.hexIconColor)) {
             results.iconColor = results.hexIconColor
         };
-        //tests 6-character long text (or icon) color value against hex regex; if it passes, "#" is 
-        //appended to the beginning of the value. This prevents things like "purple" from acquiring a "#"
-        if (results.textColor.length === 6 && hexRegEx.test (results.textColor)) {
-            results.textColor = `#${results.textColor}`
-        };
-        if (results.iconColor.length === 6 && hexRegEx.test (results.iconColor)) {
-            results.iconColor = `#${results.iconColor}`
-        };
 
         // assigns shapes to an object then calls the correct shape class from that object
         const shapeMap = {
@@ -103,5 +95,3 @@ inquirer
         fs.writeFile (`${fileName}.svg`, newSVG);
         console.log (`${fileName}.svg has been written to the hard drive.`);
     });
-
-    // module.exports = hexValidator;
