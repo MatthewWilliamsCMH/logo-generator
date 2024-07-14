@@ -11,7 +11,7 @@
     "test": "jest"
   },
   "author": "Matthew Williams",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "inquirer-maxlength-input-prompt": "^1.0.2",
     "inquirer": "^8.2.4"
