@@ -1,0 +1,19 @@
+{
+  "name": "logo-generator",
+  "version": "1.0.0",
+  "description": "app to generate simple logos",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Matthew Williams",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer-maxlength-input-prompt": "^1.0.2",
+    "inquirer": "^8.2.4"
+  }
+}
