@@ -1,22 +1,12 @@
 const inquirer = require("inquirer");
 const MaxLengthInputPrompt = require('inquirer-maxlength-input-prompt');
 const fs = require("fs/promises");
+const validateHex = require("./lib/hexvalidator")
 const Circle = require("./lib/circle.js");
 const Square = require("./lib/square.js");
 const Triangle = require("./lib/triangle.js");
 const colors = ["custom color", "red", "yellow", "green", "lime", "aqua", "blue", "cyan", "black", "white"];
 const hexRegEx = /^([0-9a-f]{3}){1,2}$/i;
-
-//validates hex number for text and icon color
-function hexValidator (hexColor) {
-    if (hexColor.length === 7 && hexColor.charAt[0] === "#") {
-        hexColor = hexColor.slice (1,6);
-    };
-    if (hexRegEx.test (hexColor) === false) {
-        return "Please supply a valid hexidecimal number in RRGGBB format.";
-    };
-    return true;
-};
 
 inquirer.registerPrompt ('maxlength-input', MaxLengthInputPrompt);
 
@@ -39,7 +29,7 @@ inquirer
             name: "hexTextColor",
             message: "What is the hex value of the color you want to use?",
             when: (answers) => answers.textColor === "custom color",
-            validate: hexValidator
+            validate: validateHex
         },
         {
             type: "list",
@@ -58,7 +48,7 @@ inquirer
             name: "hexIconColor",
             message: "What is the hex value of the color you want to use?",
             when: (answers) => answers.iconColor === "custom color",
-            validate: hexValidator
+            validate: validateHex
         },
         {
             type: "input",
@@ -113,3 +103,5 @@ inquirer
         fs.writeFile (`${fileName}.svg`, newSVG);
         console.log (`${fileName}.svg has been written to the hard drive.`);
     });
+
+    // module.exports = hexValidator;
