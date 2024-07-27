@@ -23,7 +23,7 @@ As a CLI, Logo Generator requires no installation, per se, but ensure that index
 ## Usage
 To use Logo Generator, type "node index.js" in Terminal from the folder containing the index.js file. Complete the prompts to generate a logo file. Note that you can either choose from named color or provide your own hexidecimal color to the logo's icon and text. Hex colors should be keyed in RRGGBB format. To see a video of the application in action, click on the screen capture below.
 
-[<img src="./images/logo-generator.jpg">](./images/logo-generator.mp4)
+[<img src="./images/logo-generator.jpg">](./images/logo-generator_lo-res.mp4)
 
 
 ## Contributing
